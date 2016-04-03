@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :comments
+  resource :user, only: [:edit, :update]
   get 'pages/info'
 
 root :to => redirect('/ideas')
@@ -36,7 +38,7 @@ root :to => redirect('/ideas')
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
-  #     resource :seller
+  #     resources :seller
   #   end
 
   # Example resource route with more complex sub-resources:
